@@ -3,6 +3,7 @@
 @section('content')
     <div class="container mx-auto">
         @include('partials.post-card')
+        <a href="./comments/create/{{$post->id}}" class="btn btn-primary">Leave the comment</a>
         <h3 class="text-2xl">Comments:</h3>
         @foreach($post->comments()->latest()->get() as $comment)
             <div class="card bg-base-200 shadow-xl mt-3">

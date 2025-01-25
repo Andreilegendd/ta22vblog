@@ -84,9 +84,14 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Post $post)
-    {
-
-        $post->delete();
-        return redirect()->back();
+{
+    // Assuming you have a file path stored in the $post model
+    if ($post->file_path) {
+        Storage::delete($post->file_path);
     }
+
+    $post->delete();
+
+    return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+}
 }
