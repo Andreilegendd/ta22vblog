@@ -32,9 +32,9 @@
 
                                 <a href="{{ route('users.show', $user) }}" class="btn join-item btn-info">View</a>
                                 <a href="{{ route('users.edit', $user) }}" class="btn join-item btn-warning">Edit</a>
-                                <form action="#" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
+                                <form action="{{ route('users.destroy', $user) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
                                     <button type="submit" class="btn join-item btn-error">Delete</button>
                                 </form>
                             </div>
